@@ -15,6 +15,12 @@ export default async function handler(req, res) {
     if (!emailExists) {
       return res.status(400).json({ msg: "Please Register first !" });
     }
+
+    const userInfo = {
+      username: emailExists.username,
+      email: emailExists.email,
+    };
+
     const tokenData = {
       id: emailExists._id,
       username: emailExists.username,
@@ -25,7 +31,7 @@ export default async function handler(req, res) {
       const token = jwt.sign(tokenData, secretValue, {
         expiresIn: "1d",
       });
-      return res.status(200).json({ msg: "Logged in successfully !", token });
+      return res.status(200).json({ msg: "Logged in successfully !", token, userInfo });
     }
 
     return res.status(400).json({ msg: "Invalid Credentitials !" });

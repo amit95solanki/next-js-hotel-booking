@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer, useRef } from "react";
 import PropTypes from "prop-types";
-
+import axios from "axios";
 const HANDLERS = {
   INITIALIZE: "INITIALIZE",
   SIGN_IN: "SIGN_IN",
@@ -33,7 +33,7 @@ const handlers = {
   },
   [HANDLERS.SIGN_IN]: (state, action) => {
     const user = action.payload;
-
+    console.log("user", user);
     return {
       ...state,
       isAuthenticated: true,
@@ -125,28 +125,30 @@ export const AuthProvider = (props) => {
   };
 
   const signIn = async (email, password) => {
-    if (email !== "demo@devias.io" || password !== "Password123!") {
-      throw new Error("Please check your email and password");
-    }
+    return await axios.post("/api/user/login", { email, password });
 
-    try {
-      window.sessionStorage.setItem("authenticated", "true");
-      window.localStorage.setItem("authenticated", "true");
-    } catch (err) {
-      console.error(err);
-    }
+    //   if (email !== "demo@devias.io" || password !== "Password123!") {
+    //     throw new Error("Please check your email and password");
+    //   }
 
-    const user = {
-      id: "5e86809283e28b96d2d38537",
-      avatar: "/assets/avatars/avatar-anika-visser.png",
-      name: "Anika Visser",
-      email: "anika.visser@devias.io",
-    };
+    //   try {
+    //     window.sessionStorage.setItem("authenticated", "true");
+    //     window.localStorage.setItem("authenticated", "true");
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
 
-    dispatch({
-      type: HANDLERS.SIGN_IN,
-      payload: user,
-    });
+    //   const user = {
+    //     id: "5e86809283e28b96d2d38537",
+    //     avatar: "/assets/avatars/avatar-anika-visser.png",
+    //     name: "Anika Visser",
+    //     email: "anika.visser@devias.io",
+    //   };
+
+    //   dispatch({
+    //     type: HANDLERS.SIGN_IN,
+    //     payload: user,
+    //   });
   };
 
   const signUp = async (email, name, password) => {
@@ -167,6 +169,8 @@ export const AuthProvider = (props) => {
         signIn,
         signUp,
         signOut,
+        dispatch,
+        HANDLERS,
       }}
     >
       {children}
