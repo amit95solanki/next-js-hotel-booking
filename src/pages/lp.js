@@ -14,7 +14,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Footer } from "src/components/Footer";
-
+import Link from "next/link";
 const Header = styled(AppBar)`
   background: #6366f1;
 `;
@@ -56,73 +56,74 @@ export default function lp() {
   return (
     <>
       <Box>
-        <Box sx={{ flexGrow: 1, marginBottom: "20px" }}>
-          <Container maxWidth="lg">
-            <Header position="static">
-              <Toolbar>
-                {/* <IconButton size="large" edge="start" color="#fff" aria-label="menu" sx={{ mr: 2 }}>
+        <Box sx={{ flexGrow: 1 }}>
+          {/* <Container maxWidth="lg"> */}
+          <Header position="static">
+            <Toolbar>
+              {/* <IconButton size="large" edge="start" color="#fff" aria-label="menu" sx={{ mr: 2 }}>
                   <MenuIcon />
                 </IconButton> */}
-                <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1, color: "#fff" }}>
-                  STAY's गृह
-                </Typography>
-
+              <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1, color: "#fff" }}>
+                STAY's गृह
+              </Typography>
+              <Link href="/auth/login">
                 <Button sx={{ color: "#fff" }}>Login</Button>
-              </Toolbar>
-            </Header>
-          </Container>
+              </Link>
+            </Toolbar>
+          </Header>
+          {/* </Container> */}
         </Box>
-        <Container maxWidth="lg">
-          <div
-            style={{
-              backgroundImage: `url(/assets/hotel.jpg)`,
-              backgroundSize: "100% 100%", // Make the background image responsive
-              height: "40vh",
-            }}
-          ></div>
-        </Container>
+        {/* <Container maxWidth="lg"> */}
+        <div
+          style={{
+            backgroundImage: `url(/assets/hotel.jpg)`,
+            backgroundSize: "100% 100%", // Make the background image responsive
+            height: "40vh",
+          }}
+        ></div>
+        {/* </Container> */}
 
-        <CssBaseline />
-        <Container maxWidth="lg" sx={{ color: " #6366f1" }}>
-          <Typography variant="h6" gutterBottom textAlign={"center"} sx={{ padding: "1% " }}>
-            Book a Room
-          </Typography>
-          <Typography variant="overline" display="block" gutterBottom textAlign={"center"}>
-            Discover the perfect space for you
-          </Typography>
-          <SearchBox>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 1, sm: 2, md: 4 }}>
-              <Box sx={{ padding: "10px" }}>
-                <TextField fullWidth label="Search City" name="search-input" />
-              </Box>
+        {/* <CssBaseline /> */}
+        {/* <Container maxWidth="lg" sx={{ color: " #6366f1" }}> */}
+        <Typography variant="h6" gutterBottom textAlign={"center"} sx={{ padding: "1% " }}>
+          Book a Room
+        </Typography>
+        <Typography variant="overline" display="block" gutterBottom textAlign={"center"}>
+          Discover the perfect space for you
+        </Typography>
+        <SearchBox>
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 1, sm: 2, md: 4 }}>
+            <Box sx={{ padding: "10px" }}>
+              <TextField fullWidth label="Search City" name="search-input" />
+            </Box>
 
-              <Box>
-                <TextField
-                  id="mui-custom-date"
-                  label="Date"
-                  name="mui-custom-date"
-                  type="date"
-                  sx={inputStyle}
-                  fullWidth
-                />
-              </Box>
-              <Box>
-                <TextField
-                  id="mui-custom-date"
-                  label="Date"
-                  name="mui-custom-date"
-                  type="date"
-                  sx={inputStyle}
-                  fullWidth
-                />
-              </Box>
-            </Stack>
-          </SearchBox>
-        </Container>
+            <Box>
+              <TextField
+                id="mui-custom-date"
+                label="Date"
+                name="mui-custom-date"
+                type="date"
+                sx={inputStyle}
+                fullWidth
+              />
+            </Box>
+            <Box>
+              <TextField
+                id="mui-custom-date"
+                label="Date"
+                name="mui-custom-date"
+                type="date"
+                sx={inputStyle}
+                fullWidth
+              />
+            </Box>
+          </Stack>
+        </SearchBox>
+        {/* </Container> */}
       </Box>
-      <Container maxWidth="lg">
-        <Footer />
-      </Container>
+      {/* <Container maxWidth="lg"> */}
+      <Footer />
+      {/* </Container> */}
     </>
   );
 }

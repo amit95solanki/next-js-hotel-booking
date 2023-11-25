@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { useAuth } from "src/hooks/use-auth";
 import { Layout as AuthLayout } from "src/layouts/auth/layout";
-
+import Cookies from "js-cookie";
 const Page = () => {
   const router = useRouter();
   const auth = useAuth();
@@ -53,6 +53,10 @@ const Page = () => {
               type: auth.HANDLERS.SIGN_IN,
               payload: user,
             });
+            console.log("Response:", response.data);
+            if (response?.data) {
+              Cookies.set("token", response.data.token, { expires: 7 });
+            }
             router.push("/");
             console.log("Response:", response.data);
           })
