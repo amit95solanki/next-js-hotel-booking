@@ -2,13 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import { useAuthContext } from "src/contexts/auth-context";
-
+// import Cookies from "js-cookie";
+// import jwtDecode from "jwt-decode";
 export const AuthGuard = (props) => {
   const { children } = props;
   const router = useRouter();
-  const { isAuthenticated } = useAuthContext();
+  const { isAuthenticated, tokenValue, setTokenvalue } = useAuthContext();
   const ignore = useRef(false);
   const [checked, setChecked] = useState(false);
+  // useEffect(() => {
+  //   const cookie = Cookies.get("token");
+  //   console.log(cookie);
+  //   const decodedToken = jwtDecode(cookie);
+
+  //   console.log("Decoded Token:", decodedToken);
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log("auth-guard", tokenValue, setTokenvalue);
+  // }, [tokenValue, setTokenvalue]);
 
   // Only do authentication check on component mount.
   // This flow allows you to manually redirect the user after sign-out, otherwise this will be

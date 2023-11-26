@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer, useRef } from "react";
+import { createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 const HANDLERS = {
@@ -59,6 +59,7 @@ export const AuthContext = createContext({ undefined });
 export const AuthProvider = (props) => {
   const { children } = props;
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [tokenValue, setTokenvalue] = useState(null);
   const initialized = useRef(false);
 
   const initialize = async () => {
@@ -171,6 +172,8 @@ export const AuthProvider = (props) => {
         signOut,
         dispatch,
         HANDLERS,
+        tokenValue,
+        setTokenvalue,
       }}
     >
       {children}

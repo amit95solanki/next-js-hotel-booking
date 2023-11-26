@@ -12,6 +12,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ msg: "Email and password required !" });
     }
     const emailExists = await User.findOne({ email });
+    // console.log("emailExists", emailExists);
     if (!emailExists) {
       return res.status(400).json({ msg: "Please Register first !" });
     }
@@ -25,6 +26,7 @@ export default async function handler(req, res) {
       id: emailExists._id,
       username: emailExists.username,
       email: emailExists.email,
+      role: emailExists.role,
     };
     const passwordMatched = await bcryptjs.compare(password, emailExists.password);
     if (passwordMatched) {

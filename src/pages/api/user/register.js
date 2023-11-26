@@ -4,10 +4,10 @@ import bcryptjs from "bcryptjs";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     connectDB();
-    const { username, email, password } = req.body;
-    console.log(username, email, password);
+    const { username, email, password, role } = req.body;
+    console.log(username, email, password, role);
     // console.log("email", email);
-    if (!username || !email || !password) {
+    if (!username || !email || !password || !role) {
       return res.status(400).json({ message: "all field mantadory" });
     }
 
@@ -21,6 +21,7 @@ export default async function handler(req, res) {
     const newUser = new User({
       username,
       email,
+      role,
       password: hashedPassword,
     });
     const result = await newUser.save();
