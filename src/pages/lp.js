@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { Footer } from "src/components/Footer";
 import Link from "next/link";
+import Hotels from "src/components/Hotels";
 const Header = styled(AppBar)`
   background: #6366f1;
 `;
@@ -97,7 +98,7 @@ export default function lp() {
               <TextField fullWidth label="Search City" name="search-input" />
             </Box>
 
-            <Box>
+            {/* <Box>
               <TextField
                 id="mui-custom-date"
                 label="Date"
@@ -116,12 +117,20 @@ export default function lp() {
                 sx={inputStyle}
                 fullWidth
               />
+            </Box> */}
+            <Box sx={{ paddingTop: "13px" }}>
+              <Link href={`/hotel?city=india`}>
+                <Button variant="contained" sx={{ height: "50px" }}>
+                  search
+                </Button>
+              </Link>
             </Box>
           </Stack>
         </SearchBox>
         {/* </Container> */}
       </Box>
       {/* <Container maxWidth="lg"> */}
+      {/* <Hotels /> */}
       <Footer />
       {/* </Container> */}
     </>
