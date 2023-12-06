@@ -1,12 +1,12 @@
-import React from "react";
+import * as React from "react";
+
 import Hotels from "src/components/Hotels";
 
 const index = ({ hotels }) => {
   console.log(hotels);
   return (
     <>
-      {/* <Hotels /> */}
-      {hotels ? <Hotels hotels={hotels} /> : "loading..."}
+      <Hotels hotels={hotels} />
     </>
   );
 };

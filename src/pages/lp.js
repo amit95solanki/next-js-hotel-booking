@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
@@ -50,10 +51,7 @@ const inputStyle = {
 };
 
 export default function lp() {
-  const handleSearch = () => {
-    // Implement your search logic here
-    // You can use the onSearch callback to pass the search value to the parent component
-  };
+  const [city, setCity] = React.useState(" ");
   return (
     <>
       <Box>
@@ -95,7 +93,14 @@ export default function lp() {
         <SearchBox>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 1, sm: 2, md: 4 }}>
             <Box sx={{ padding: "10px" }}>
-              <TextField fullWidth label="Search City" name="search-input" />
+              <TextField
+                fullWidth
+                label="Search City"
+                name="search-input"
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+              />
             </Box>
 
             {/* <Box>
@@ -119,7 +124,7 @@ export default function lp() {
               />
             </Box> */}
             <Box sx={{ paddingTop: "13px" }}>
-              <Link href={`/hotel?city=india`}>
+              <Link href={`/hotel?city=${city}`}>
                 <Button variant="contained" sx={{ height: "50px" }}>
                   search
                 </Button>
