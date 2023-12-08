@@ -1,25 +1,9 @@
 import * as React from "react";
-import { useState } from "react";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import {
-  AppBar,
-  Toolbar,
-  styled,
-  Typography,
-  Button,
-  Box,
-  CssBaseline,
-  Container,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { styled, Typography, Button, Box, Stack, TextField } from "@mui/material";
 import { Footer } from "src/components/Footer";
 import Link from "next/link";
-import Hotels from "src/components/Hotels";
-const Header = styled(AppBar)`
-  background: #6366f1;
-`;
+import Nav from "src/components/Nav";
+
 const SearchBox = styled(Box)`
   background-color: #ffffff;
 
@@ -55,23 +39,7 @@ export default function lp() {
   return (
     <>
       <Box>
-        <Box sx={{ flexGrow: 1 }}>
-          {/* <Container maxWidth="lg"> */}
-          <Header position="static">
-            <Toolbar>
-              {/* <IconButton size="large" edge="start" color="#fff" aria-label="menu" sx={{ mr: 2 }}>
-                  <MenuIcon />
-                </IconButton> */}
-              <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1, color: "#fff" }}>
-                STAY's गृह
-              </Typography>
-              <Link href="/auth/login">
-                <Button sx={{ color: "#fff" }}>Login</Button>
-              </Link>
-            </Toolbar>
-          </Header>
-          {/* </Container> */}
-        </Box>
+        <Nav />
         {/* <Container maxWidth="lg"> */}
         <div
           style={{

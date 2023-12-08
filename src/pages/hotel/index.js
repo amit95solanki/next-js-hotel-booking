@@ -1,12 +1,16 @@
 import * as React from "react";
+import { Footer } from "src/components/Footer";
 
 import Hotels from "src/components/Hotels";
+import Nav from "src/components/Nav";
 
 const index = ({ hotels }) => {
   console.log(hotels);
   return (
     <>
+      <Nav />
       <Hotels hotels={hotels} />
+      <Footer />
     </>
   );
 };

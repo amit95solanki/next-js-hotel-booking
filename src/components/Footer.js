@@ -262,7 +262,7 @@ export const Footer = () => {
                   lineHeight: "17px",
                 }}
               >
-                © 2021 . All Rights Reserved. With love by Pathfinder Studio
+                © 2023 . All Rights Reserved. With love by STAY's गृह
               </Typography>
             </Box>
           </Grid>

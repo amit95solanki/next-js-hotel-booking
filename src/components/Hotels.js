@@ -9,14 +9,14 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-
+import Link from "next/link";
 const Hotels = ({ hotels }) => {
   return (
     <>
       <React.Fragment>
         <CssBaseline />
-        <Container maxWidth="lg">
-          <Box sx={{ bgcolor: "#cfe8fc" }}>
+        <Container maxWidth="xl">
+          <Box>
             <Box sx={{ width: "100%", padding: "5px" }}>
               <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {hotels ? (
@@ -39,8 +39,15 @@ const Hotels = ({ hotels }) => {
                             </Typography>
                           </CardContent>
                           <CardActions>
-                            <Button size="small">Share</Button>
-                            <Button size="small">See Details</Button>
+                            <Button size="small" variant="outlined" color="error">
+                              Book Now
+                            </Button>
+
+                            <Link href={`/hotel/${e?._id}`}>
+                              <Button size="small" variant="outlined" sx={{ marginLeft: "10px" }}>
+                                See Details
+                              </Button>
+                            </Link>
                           </CardActions>
                         </Card>
                       </Grid>
