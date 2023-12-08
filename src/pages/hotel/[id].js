@@ -1,10 +1,5 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { Box, Container, CssBaseline, Stack, Typography, Button } from "@mui/material";
 import Nav from "src/components/Nav";
 import { Footer } from "src/components/Footer";
 const DetailPage = ({ hotels }) => {
@@ -23,19 +18,13 @@ const DetailPage = ({ hotels }) => {
           >
             <Box>
               <div className="thumbs">
-                <div className="box">
-                  {/* <img
-                    src="https://images.unsplash.com/photo-1679581858563-3c808d23f0fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODE0OTMyMjM&ixlib=rb-4.0.3&q=80&w=400"
-                    alt=""
-                  /> */}
-                </div>
+                <div className="box"></div>
 
-                {hotels &&
-                  hotels.gallery.map((image, index) => (
-                    <div className="box" key={index}>
-                      <img src={image} alt={`Image ${index + 1}`} />
-                    </div>
-                  ))}
+                {hotels.gallery.map((image, index) => (
+                  <div className="box" key={index}>
+                    <img src={image} alt={`Image ${index + 1}`} />
+                  </div>
+                ))}
               </div>
             </Box>
 

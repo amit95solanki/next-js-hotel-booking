@@ -1,15 +1,58 @@
 import * as React from "react";
 import { Footer } from "src/components/Footer";
-
+import { Grid } from "@mui/material";
 import Hotels from "src/components/Hotels";
 import Nav from "src/components/Nav";
-
+import Filter from "src/components/Filter";
+import axios from "axios";
+import { useEffect, useState } from "react";
 const index = ({ hotels }) => {
   console.log(hotels);
+
+  const [price, setPrice] = useState(3500);
+  const [list, setList] = useState([]);
+  const [checkedList, setCheckedList] = useState([]);
+
+  const handleCheckList = async () => {
+    const { data } = await axios.get(`/api/facilities/search?val=${checkedList}`);
+    if (data?.hotels) {
+      setList(data.hotels);
+    }
+  };
+
+  useEffect(() => {
+    if (checkedList) {
+      handleCheckList();
+    }
+  }, [checkedList]);
+
+  const handlePrice = async () => {
+    const { data } = await axios.get(`/api/facilities/range?price=${price}`);
+    console.log("range data", data);
+    if (data?.hotels) {
+      setList(data.hotels);
+    }
+  };
+
+  console.log("list", list);
   return (
     <>
       <Nav />
-      <Hotels hotels={hotels} />
+      <Grid container spacing={2}>
+        <Grid item xs={4} sm={4} md={3} lg={2} sx={{ padding: "20px" }}>
+          <Filter
+            price={price}
+            setPrice={setPrice}
+            handlePrice={handlePrice}
+            checkedList={checkedList}
+            setCheckedList={setCheckedList}
+          />
+        </Grid>
+        <Grid item xs={8} sm={8} md={9} lg={10}>
+          {list.length > 0 ? <Hotels hotels={list} /> : <Hotels hotels={hotels} />}
+        </Grid>
+      </Grid>
+
       <Footer />
     </>
   );
