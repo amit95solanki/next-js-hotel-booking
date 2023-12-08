@@ -43,12 +43,6 @@ const Filter = ({ price, setPrice, handlePrice, checkedList, setCheckedList }) =
     fetchFacilities();
   }, []);
 
-  const [state, setState] = React.useState({
-    gilad: true,
-    jason: false,
-    antoine: false,
-  });
-
   const handleChange = (event) => {
     setState({
       ...state,
@@ -56,7 +50,6 @@ const Filter = ({ price, setPrice, handlePrice, checkedList, setCheckedList }) =
     });
   };
 
-  const { gilad, jason, antoine } = state;
   return (
     <>
       <Typography variant="legend" gutterBottom sx={{ marginTop: "30px", marginLeft: "20px" }}>
@@ -72,7 +65,6 @@ const Filter = ({ price, setPrice, handlePrice, checkedList, setCheckedList }) =
             aria-label="Small"
             valueLabelDisplay="auto"
             onChange={(e) => setPrice(e.target.value)}
-            // defaultValue={price ? price : 0}
           />
         </Box>
       </Box>
@@ -86,18 +78,22 @@ const Filter = ({ price, setPrice, handlePrice, checkedList, setCheckedList }) =
         <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
           <FormLabel component="legend">FACILITY</FormLabel>
           <FormGroup>
-            <FormControlLabel
-              control={<Checkbox checked={gilad} onChange={handleChange} name="gilad" />}
-              label="Gilad Gray"
-            />
-            <FormControlLabel
-              control={<Checkbox checked={jason} onChange={handleChange} name="jason" />}
-              label="Jason Killian"
-            />
-            <FormControlLabel
-              control={<Checkbox checked={antoine} onChange={handleChange} name="antoine" />}
-              label="Antoine Llorca"
-            />
+            {list?.map((e) => {
+              return (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      type="checkbox"
+                      name="ckeckbox"
+                      id="checkbox"
+                      value={e}
+                      onChange={handleCheckList}
+                    />
+                  }
+                  label={e}
+                />
+              );
+            })}
           </FormGroup>
           <FormHelperText>❤️</FormHelperText>
         </FormControl>
