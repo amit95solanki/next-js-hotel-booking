@@ -2,10 +2,7 @@ import jwt from "jsonwebtoken";
 import Cookies from "js-cookie";
 export const getDataFromToken = (req) => {
   try {
-    console.log("Getting token from cookie");
-    // const token = req.Cookies.get("token");
-    const token = localStorage.getItem("token");
-    console.log("Token value:", token);
+    const token = req;
 
     if (!token) {
       console.log("Token not found");

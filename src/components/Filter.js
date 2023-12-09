@@ -81,6 +81,7 @@ const Filter = ({ price, setPrice, handlePrice, checkedList, setCheckedList }) =
             {list?.map((e) => {
               return (
                 <FormControlLabel
+                  key={e}
                   control={
                     <Checkbox
                       type="checkbox"

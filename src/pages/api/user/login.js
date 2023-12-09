@@ -33,6 +33,7 @@ export default async function handler(req, res) {
       const token = jwt.sign(tokenData, secretValue, {
         expiresIn: "1d",
       });
+
       return res.status(200).json({ msg: "Logged in successfully !", token, userInfo });
     }
 

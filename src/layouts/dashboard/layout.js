@@ -4,7 +4,8 @@ import { styled } from "@mui/material/styles";
 import { withAuthGuard } from "src/hocs/with-auth-guard";
 import { SideNav } from "./side-nav";
 import { TopNav } from "./top-nav";
-
+import Cookies from "js-cookie";
+import axios from "axios";
 const SIDE_NAV_WIDTH = 280;
 
 const LayoutRoot = styled("div")(({ theme }) => ({
@@ -42,6 +43,19 @@ export const Layout = withAuthGuard((props) => {
     [pathname]
   );
 
+  useEffect(() => {
+    const myCookie = Cookies.get("token");
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/api/user/me?token=${myCookie}`);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <>
       <TopNav onNavOpen={() => setOpenNav(true)} />

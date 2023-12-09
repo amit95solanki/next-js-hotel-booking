@@ -5,7 +5,7 @@ import connectDB from "../../../../db";
 connectDB();
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const userId = await getDataFromToken(req);
+    const userId = await getDataFromToken(req.query.token);
     console.log("request", userId);
     const user = await User.findOne({ _id: userId }).select("-password");
 
