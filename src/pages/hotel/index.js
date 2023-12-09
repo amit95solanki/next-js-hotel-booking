@@ -38,7 +38,7 @@ const index = ({ hotels }) => {
   return (
     <>
       <Nav />
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{ marginTop: "20px" }}>
         <Grid item xs={4} sm={4} md={3} lg={2} sx={{ padding: "20px" }}>
           <Filter
             price={price}

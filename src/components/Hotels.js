@@ -18,18 +18,18 @@ const Hotels = ({ hotels }) => {
           hotels.map((e) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={e._id}>
               <Card sx={{ maxWidth: 345 }}>
-                <CardMedia component="img" alt="green iguana" height="140" image={e.banner} />
+                <CardMedia component="img" alt="green iguana" height="140" image={e?.banner} />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {e.name}
+                    {e?.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {e.description}
+                    {e?.description}
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <Button size="small" variant="outlined" color="error">
-                    Book Now
+                    Price: {e?.price}
                   </Button>
 
                   <Link href={`/hotel/${e?._id}`}>
