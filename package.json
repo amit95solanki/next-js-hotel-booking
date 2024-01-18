@@ -1,9 +1,9 @@
 {
-  "name": "material-kit-react",
+  "name": "material-kit-react-customize-by-amit-solanki",
   "version": "3.0.0",
   "author": "Devias",
   "licence": "MIT",
-  "homepage": "https://devias.io",
+  "homepage": "",
   "private": false,
   "scripts": {
     "dev": "next",

@@ -2,8 +2,10 @@ import * as React from "react";
 import { Box, Container, CssBaseline, Stack, Typography, Button } from "@mui/material";
 import Nav from "src/components/Nav";
 import { Footer } from "src/components/Footer";
+import { useRouter } from "next/navigation";
 const DetailPage = ({ hotels }) => {
   console.log("++++++", hotels);
+  const router = useRouter();
   return (
     <>
       <Nav />
@@ -79,7 +81,11 @@ const DetailPage = ({ hotels }) => {
                 <Button variant="outlined" color="error" sx={{ marginRight: "20px" }}>
                   Price: {hotels.price} ₹
                 </Button>
-                <Button variant="outlined" color="error">
+                <Button
+                  variant="outlined"
+                  color="error"
+                  onClick={() => router.push("/hotel/booking")}
+                >
                   Book Now
                 </Button>
               </Box>

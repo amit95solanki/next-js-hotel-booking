@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     connectDB();
     const { username, email, password, role } = req.body;
     console.log(username, email, password, role);
-    // console.log("email", email);
+    console.log("email", email);
     if (!username || !email || !password || !role) {
       return res.status(400).json({ message: "all field mantadory" });
     }

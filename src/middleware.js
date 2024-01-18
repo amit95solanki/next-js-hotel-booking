@@ -4,7 +4,11 @@ import { jwtDecode } from "jwt-decode";
 export function middleware(request) {
   const path = request.nextUrl.pathname;
 
-  const isPublicPath = path === "/auth/login" || path === '/auth/register"' || path === "/lp";
+  const isPublicPath =
+    path === "/auth/login" ||
+    path === '/auth/register"' ||
+    path === "/lp" ||
+    path === "/hotel/booking";
 
   const token = request.cookies.get("token")?.value || "";
 
@@ -13,9 +17,13 @@ export function middleware(request) {
     console.log("Decoded Token:", decodedToken);
   }
 
-  if (isPublicPath && token) {
-    return NextResponse.redirect(new URL("/", request.nextUrl));
-  }
+  // if (isPublicPath && token) {
+  //   return NextResponse.redirect(new URL("/hotel/booking", request.nextUrl));
+  // }
+
+  // if (isPublicPath && token) {
+  //   return NextResponse.redirect(new URL("/hotel/booking", request.nextUrl));
+  // }
 
   if (!isPublicPath && !token) {
     console.log("nahe jauga !");
@@ -24,5 +32,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/", "/profile", "/auth/login", "/verifyemail", "/customers"],
+  matcher: ["/profile", "/auth/login", "/verifyemail", "/customers"],
 };

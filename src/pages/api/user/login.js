@@ -2,6 +2,7 @@ import connectDB from "../../../../db";
 import User from "../../../models/user-model";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -34,7 +35,7 @@ export default async function handler(req, res) {
         expiresIn: "1d",
       });
 
-      return res.status(200).json({ msg: "Logged in successfully !", token, userInfo });
+      return res.status(200).send({ msg: "Logged in successfully !", token, userInfo });
     }
 
     return res.status(400).json({ msg: "Invalid Credentitials !" });

@@ -6,6 +6,7 @@ import { SideNav } from "./side-nav";
 import { TopNav } from "./top-nav";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 const SIDE_NAV_WIDTH = 280;
 
 const LayoutRoot = styled("div")(({ theme }) => ({
@@ -26,6 +27,7 @@ const LayoutContainer = styled("div")({
 
 export const Layout = withAuthGuard((props) => {
   const { children } = props;
+  const router = useRouter();
   const pathname = usePathname();
   const [openNav, setOpenNav] = useState(false);
 
@@ -48,9 +50,15 @@ export const Layout = withAuthGuard((props) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/api/user/me?token=${myCookie}`);
-        console.log(response);
+        console.log("token in layout", response);
+        if (response?.data?.user?.role === "admin") {
+          return;
+        } else {
+          router.push("/auth/login");
+        }
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching user data:", error);
+        // Handle the error (log it, show a message, etc.)
       }
     };
 

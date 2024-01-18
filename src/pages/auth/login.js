@@ -19,6 +19,7 @@ import {
 import { useAuth } from "src/hooks/use-auth";
 import { Layout as AuthLayout } from "src/layouts/auth/layout";
 import Cookies from "js-cookie";
+
 const Page = () => {
   const router = useRouter();
   const auth = useAuth();
@@ -26,8 +27,8 @@ const Page = () => {
   const [method, setMethod] = useState("email");
   const formik = useFormik({
     initialValues: {
-      email: "test7@gmail.com",
-      password: "123456",
+      email: "",
+      password: "",
       submit: null,
     },
     validationSchema: Yup.object({
@@ -160,11 +161,11 @@ const Page = () => {
                 {/* <Button fullWidth size="large" sx={{ mt: 3 }} onClick={handleSkip}>
                   Skip authentication
                 </Button> */}
-                {/* <Alert color="primary" severity="info" sx={{ mt: 3 }}>
+                <Alert color="primary" severity="info" sx={{ mt: 3 }}>
                   <div>
-                    You can use <b>demo@devias.io</b> and password <b>Password123!</b>
+                    You can use <b>admin@test.com</b> and password <b>123456</b>
                   </div>
-                </Alert> */}
+                </Alert>
               </form>
             )}
             {method === "phoneNumber" && (
