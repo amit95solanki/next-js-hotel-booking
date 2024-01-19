@@ -77,9 +77,9 @@ export const Layout = (props) => {
               variant="h1"
             >
               Welcome to{" "}
-              <Box component="a" sx={{ color: "#15B79E" }} target="_blank">
+              {/* <Box component="a" sx={{ color: "#15B79E" }} target="_blank">
                 STAY's
-              </Box>
+              </Box> */}
             </Typography>
             <Typography align="center" sx={{ mb: 3 }} variant="subtitle1">
               Beyond Accommodation, We Offer Experiences.
