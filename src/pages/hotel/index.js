@@ -6,7 +6,7 @@ import Nav from "src/components/Nav";
 import Filter from "src/components/Filter";
 import axios from "axios";
 import { useEffect, useState } from "react";
-const index = ({ hotels }) => {
+const Index = ({ hotels }) => {
   console.log(hotels);
 
   const [price, setPrice] = useState(3500);
@@ -83,4 +83,4 @@ export async function getServerSideProps(ctx) {
   }
 }
 
-export default index;
+export default Index;

@@ -70,9 +70,7 @@ export const SideNav = (props) => {
               <Typography color="inherit" variant="subtitle1">
                 STAY's
               </Typography>
-              <Typography color="neutral.400" variant="body2">
-                गृह
-              </Typography>
+              <Typography color="neutral.400" variant="body2"></Typography>
             </div>
             <SvgIcon fontSize="small" sx={{ color: "neutral.500" }}>
               {/* <ChevronUpDownIcon /> */}
@@ -164,7 +162,8 @@ export const SideNav = (props) => {
     return (
       <Drawer
         anchor="left"
-        open
+        onClose={onClose}
+        open={open}
         PaperProps={{
           sx: {
             backgroundColor: "neutral.800",
@@ -172,7 +171,8 @@ export const SideNav = (props) => {
             width: 280,
           },
         }}
-        variant="permanent"
+        sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
+        variant="temporary"
       >
         {content}
       </Drawer>

@@ -3,7 +3,7 @@ import { styled, Typography, Button, Box, Stack, TextField } from "@mui/material
 import { Footer } from "src/components/Footer";
 import Link from "next/link";
 import Nav from "src/components/Nav";
-
+import { useState } from "react";
 const SearchBox = styled(Box)`
   background-color: #ffffff;
 
@@ -34,7 +34,7 @@ const inputStyle = {
   },
 };
 
-export default function index() {
+export default function Index() {
   const [city, setCity] = React.useState(" ");
   return (
     <>

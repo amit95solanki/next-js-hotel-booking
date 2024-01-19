@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
-const booking = () => {
+const Booking = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const booking = () => {
   return <div>booking-page</div>;
 };
 
-export default booking;
+export default Booking;

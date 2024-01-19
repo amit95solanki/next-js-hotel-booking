@@ -17,7 +17,7 @@ const Nav = () => {
                   <MenuIcon />
                 </IconButton> */}
             <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1, color: "#fff" }}>
-              STAY's गृह
+              STAY's
             </Typography>
             <Link href="/auth/login">
               <Button sx={{ color: "#fff" }}>Login</Button>
