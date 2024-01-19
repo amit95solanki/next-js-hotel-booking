@@ -67,9 +67,9 @@ export const SideNav = (props) => {
             }}
           >
             <div>
-              <Typography color="inherit" variant="subtitle1">
+              {/* <Typography color="inherit" variant="subtitle1">
                 STAY's
-              </Typography>
+              </Typography> */}
               <Typography color="neutral.400" variant="body2"></Typography>
             </div>
             <SvgIcon fontSize="small" sx={{ color: "neutral.500" }}>

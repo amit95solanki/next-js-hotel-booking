@@ -262,7 +262,7 @@ export const Footer = () => {
                   lineHeight: "17px",
                 }}
               >
-                © 2023 . All Rights Reserved. With love by STAY's
+                © 2023 . All Rights Reserved.
               </Typography>
             </Box>
           </Grid>

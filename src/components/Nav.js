@@ -16,9 +16,9 @@ const Nav = () => {
             {/* <IconButton size="large" edge="start" color="#fff" aria-label="menu" sx={{ mr: 2 }}>
                   <MenuIcon />
                 </IconButton> */}
-            <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1, color: "#fff" }}>
+            {/* <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1, color: "#fff" }}>
               STAY's
-            </Typography>
+            </Typography> */}
             <Link href="/auth/login">
               <Button sx={{ color: "#fff" }}>Login</Button>
             </Link>
